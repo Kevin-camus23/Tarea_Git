@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Validacion REGEX</title>
+	</head>
+	<body>
+		<form method = "POST" action = "validar.php" />
+			Como te llamas?<br/>
+			<input type = "text" id = "nom" /><br/>
+			Ingresar numero de cuenta:<input type = "text" id = "NoC" /><br/>
+			Ingresar contraseña:<input type = "text" id = "contraseñaIng" /><br/>
+			Ingresar telefono:<input type = "text" id = "PhoneIng" /><br/>
+			<input type = "submit" />
+		</form>
+		<script>
+			function validarNoC(numeroCuenta){
+			var numeroCuenta = document.getElementById("NoC").value;
+			var pru = new RegExp("^([0-9])*$");
+			if(pru.test(numeroCuenta) && numeroCuenta.length == 9)
+				alert("Numero de cuenta valido");
+			else{
+				alert("Numero de cuenta invalido");
+			validarNoC();
+				}
+			}
+			function contraseñaIng() { 
+			var m = document.getElementById("contraseñaIng").value;
+			var expreg = new RegExp('^([a-zA-Z0-9@*#]{8,15})$');
+			if(expreg.test(m))
+				alert("La contraseña es válida");
+			else{
+				alert("La contraseña es inválida");
+			contraseñaIng();
+				}
+			}
+			function PhoneIng(){
+			var telefono = document.getElementById("PhoneIng").value;
+			var tel = new RegExp("^([0-9])*$");
+			if(tel.test(telefono) && telefono.length == 10)
+				alert("El número de teléfono es válido");
+			else{
+				alert("El número de teléfono es inválido");
+			PhoneIng();
+				}
+			}
+			var nombre = document.getElementById("nom").value;
+			alert("Hola ".nombre);
+			validarNoC();
+			contraseñaIng();
+			PhoneIng();
+		</script>
+	</body>
+</html>
